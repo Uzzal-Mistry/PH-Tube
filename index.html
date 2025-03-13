@@ -18,7 +18,11 @@
 
         .inter {
             font-family: "Inter", sans-serif;
+        }
 
+        .active {
+            background-color: #FF1F3D;
+            color: white;
         }
     </style>
 </head>
@@ -34,10 +38,13 @@
                     <img class="w-[120px]" src="assets/Logo.png" alt="">
                 </div>
                 <div class="navbar-center hidden lg:flex">
-                    <a class="btn bg-[#25252533]">Short By View</a>
+                    <label class="input">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+                        <input id="search-input" type="search" required placeholder="Search"/>
+                      </label>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn text-white bg-[#FF1F3D]">Blog</a>
+                    <a class="btn text-white bg-[#FF1F3D]">Short By View</a>
                 </div>
             </div>
 
@@ -46,7 +53,7 @@
         <!--  -->
         <div id="category_container" class="flex justify-center gap-5 py-4">
             <div>
-                <button class="btn btn-sm bg-[#FF1F3D] text-white">All</button>
+                <button onclick="loadVideo()" id="all-btn" class="btn btn-sm">All</button>
             </div>
 
 
@@ -55,6 +62,11 @@
 
     <!--  -->
     <main class="inter">
+
+        <section id="loader" class="text-center py-10 hidden">
+            <span class="loading loading-spinner loading-xl"></span>
+        </section>
+
         <section id="video_Container" class="w-11/12 mx-auto grid grid-cols-4 gap-5">
 
             <!-- <div class="card   ">
@@ -84,9 +96,29 @@
                 </div>
             </div> -->
 
-        
+            <div class="flex flex-col items-center col-span-full py-20">
+                <img class="w-[120px]" src="assets/Icon.png" alt="">
+                <h1 class="font-bold text-2xl">Oops!! Sorry, There is no content here</h1>
+            </div>
         </section>
+
+       
+
+
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
+        <dialog id="open_modal" class="modal">
+            <div class="modal-box">
+                <div id="details_Container"></div>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </main>
+
+
+
 
 
     <script src="script/index.js"></script>
